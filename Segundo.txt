@@ -1,0 +1,4 @@
+despues de iniciar el codigo este define la función principal main().
+Donde se van a declarar las variables decision de tipo int para almacenar la opción que se va a elegir por el jugador, y hasObject de tipo bool para indicar si el jugador tiene un objeto.
+Despues de eso se muestra la introducción del juego con las diferentes opciones
+Para que el jugador eliga una opcion y se vaya almacenando 
