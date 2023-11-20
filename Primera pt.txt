@@ -1,0 +1,10 @@
+Para la inicializacion del proyecto de "Juego de decisiones" se tiene que elegir un tema para poder
+hacer el juego en mi caso elegi uno de magia en un bosque 
+
+Mientras lo inicializo con 
+
+int main() {
+    int decision;
+
+Para poder guardar la decision del usuario y poder hacer todo el proceso en switch 
+ :3
