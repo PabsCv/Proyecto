@@ -1,0 +1,16 @@
+para que no falle el codigo o se buguee al momento de no poner letras en vez de numeros agregaría esto 
+
+#include <limits>
+
+lo que hace que se incluyan parametros dentro del codigo
+ 
+y 
+
+ while (cin.fail()) {
+            cout << "Opcion invalida. Por favor, ingrese un numero." << endl;
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');  
+            cout << "Ingrese el numero de la opcion que desea: ";
+            cin >> option;
+
+esto hace que solo lea una especifica cadena de caracteres, eso lo agregaría al final del codigo para ver si realmente funciona
