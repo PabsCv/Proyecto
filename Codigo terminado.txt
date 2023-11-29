@@ -1,0 +1,229 @@
+En la parte final del codigo le agregue menu mas opciones y unas lineas de codigo para quitar los bugs al momento de poner una letra en vez de numeros
+
+
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+    int option;
+    do {
+        cout << "MENU" << endl;
+        cout << "1. Jugar" << endl;
+        cout << "2. Creditos" << endl; 
+        cout << "3. Instrucciones" << endl;  
+        cout << "4. Salir" << endl;
+        cout << "Ingrese el numero de la opcion que desea: ";
+        cin >> option;
+        
+        while (cin.fail()) {
+            cout << "Opcion invalida. Por favor, ingrese un numero." << endl;
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');  
+            cout << "Ingrese el numero de la opcion que desea: ";
+            cin >> option;
+        }
+
+        switch (option) {
+            case 1: {
+                int decision;
+                bool Anillo = false;
+                bool FinalFeliz = false;
+                int vida = 100;
+
+           cout << "El lado oscuro del bosque" << endl;
+    cout << "--------------------------" << endl;
+    cout << "Vida: " << vida << endl;
+    cout << "Despiertas en un bosque oscuro y decides:" << endl;
+    cout << "1. Ir mas adentro del bosque" << endl;
+    cout << "2. Quedarte donde estas" << endl;
+    cout << "3. Ir a buscar ayuda" << endl;
+    cout << "4. Gritar" << endl;
+    cout << "Ingrese el numero de la opcion que deseas elegir: ";
+    cin >> decision;
+
+    while (decision != 1 && decision != 2 && decision != 3 && decision != 4) {
+        cout << "Opcion invalida. Elige una opcion valida del 1 al 4." << endl;
+        cout << "Ingrese el numero de la opcion que deseas elegir: ";
+        cin >> decision;
+    }
+
+    if (decision == 1) {
+        cout << "Mientras avanzas en el bosque encuentras un anillo en el suelo." << endl;
+        cout << "1. Recoger el anillo" << endl;
+        cout << "2. Dejar el anillo y seguir explorando el bosque" << endl;
+        cout << "Ingrese el numero de la opcion que deseas elegir: ";
+        cin >> decision;
+
+        while (decision != 1 && decision != 2) {
+            cout << "Opcion invalida. Elige una opcion valida del 1 al 2." << endl;
+            cout << "Ingrese el numero de la opcion que deseas elegir: ";
+            cin >> decision;
+        }
+
+        if (decision == 1) {
+            cout << "Recoges el anillo. Ahora lo tienes contigo. Te suma 20 de Vida" << endl;
+            vida += 20;
+            cout << "Vida: " << vida << endl;
+            Anillo = true;
+        } else {
+            cout << "Decides dejar el anillo y sigues explorando el bosque." << endl;
+            cout << "Vida: " << vida << endl;
+        }
+
+        cout << "Mientras exploras te encuentras con una casa. Tu decides: " << endl;
+        
+        cout << "1. Entrar a la casa" << endl;
+        cout << "2. No entrar y seguir explorando el bosque" << endl;
+        cout << "Ingrese el numero de la opcion que deseas elegir: "; 
+        cout << "Vida: " << vida << endl;
+		cin >> decision;
+        while (decision != 1 && decision != 2) {
+            cout << "Opcion invalida. Elige una opcion valida del 1 al 2." << endl;
+            cout << "Ingrese el numero de la opcion que deseas elegir: ";
+            cin >> decision;
+        }
+
+        if (decision == 1) {
+            cout << "Decides entrar a la casa y te encuentras con una habitacion oscura." << endl;
+            cout << "¿Encuentras otro anillo? ¿Lo recoges?" << endl;
+            cout << "1. Si, recogerlo" << endl;
+            cout << "2. No, dejar el anillo" << endl;
+            cout << "Vida: " << vida << endl;
+            cout << "Ingrese el numero de la opcion que deseas elegir: ";
+            cin >> decision;
+
+            while (decision != 1 && decision != 2) {
+                cout << "Opcion invalida. Elige una opcion valida del 1 al 2." << endl;
+                cout << "Ingrese el numero de la opcion que deseas elegir: ";
+                cin >> decision;
+            }
+
+            if (decision == 1) {
+                cout << "Recoges el otro anillo. Ahora lo tienes contigo." << endl;
+                cout << "Por efecto de una maldicion mueres." << endl;
+                vida = 0;
+                cout << "Vida: " << vida << endl;
+                Anillo = true;
+                cout << "Moriste" << endl;
+                return 0;
+            } else {
+                cout << "Decides dejar el anillo." << endl;
+                cout << "Vida: " << vida << endl;
+            }
+
+            cout << "Sigues explorando la habitacion y encuentras una salida." << endl;
+            cout << "1. Salir de la casa" << endl;
+            cout << "2. Investigar mas la habitación" << endl;
+            cout << "Vida: " << vida << endl;
+            cout << "Ingrese el numero de la opcion que deseas elegir: ";
+            cin >> decision;
+
+            while (decision != 1 && decision != 2) {
+                cout << "Opcion invalida. Elige una opcion valida del 1 al 2." << endl;
+                cout << "Ingrese el numero de la opcion que deseas elegir: ";
+                cin >> decision;
+            }
+
+            if (decision == 1) {
+                cout << "Sales de la casa y continuas explorando el bosque. Al final ves una ranura para poner un anillo." << endl;
+                if (vida == 120) {
+                    cout << "Pones el anillo en la ranura que te muestra una salida hacia el camino a casa." << endl;
+                    FinalFeliz = true;
+                } else {
+                    cout << "Como no recogiste ningun anillo, te quedaste atrapado en este bosque y moriste de hambre." << endl;
+                    vida = 0;
+                    cout << "Vida: " << vida << endl;
+                    cout << "Moriste" << endl;
+                    return 0;
+                }
+            } else {
+                cout << "Decides investigar más la habitacion, pero no encuentras nada mas." << endl;
+                cout << "Finalmente sales de la casa, continuas explorando el bosque al final encuentras el camino a casa." << endl;
+                FinalFeliz = true;
+            }
+        } else {
+            cout << "Decides no entrar a la casa y seguir explorando el bosque." << endl;
+            cout << "Encuentras una cueva, ¿quieres entrar?" << endl;
+            cout << "1. Entrar a la cueva" << endl;
+            cout << "2. No entrar a la cueva" << endl;
+            cout << "Ingrese el numero de la opcion que deseas elegir: ";
+            cin >> decision;
+
+            while (decision != 1 && decision != 2) {
+                cout << "Opcion invalida. Elige una opcion valida del 1 al 2." << endl;
+                cout << "Ingrese el numero de la opcion que deseas elegir: ";
+                cin >> decision;
+            }
+
+            if (decision == 1) {
+                cout << "Decides entrar a la cueva." << endl;
+                cout << "Dentro de la cueva encuentras un tesoro y sales del bosque con riquezas." << endl;
+                FinalFeliz = true;
+            } else {
+                cout << "Decides no entrar a la cueva, sigues explorando el bosque y al final encuentras el camino a casa." << endl;
+            }
+        }
+    } else if (decision == 2) {
+	        cout << "Decides quedarte donde estas y te encuentras con un oso que te ataca y mueres." << endl;
+	        vida = 0;
+	        cout << "Vida: " << vida << endl;
+	        cout << "Moriste" << endl;
+        return 0;
+    } else if (decision == 3) {
+	        cout << "Decides ir a buscar ayuda y te encuentras con un grupo de personas." << endl;
+	        cout << "Decides quedarte con las personas o seguir avanzando?" << endl;
+	        cout << "1. Quedarte con el grupo de personas" << endl;
+	        cout << "2. Seguir avanzando" << endl;
+	        cout << "Ingrese el numero de la opcion que deseas elegir: ";
+	        cout << "Vida: " << vida << endl;
+	        cin >> decision;
+
+        while (decision != 1 && decision != 2) {
+            cout << "Opcion invalida. Elige una opcion valida del 1 al 2." << endl;
+            cout << "Ingrese el numero de la opcion que deseas elegir: ";
+            cin >> decision;
+        }
+
+        if (decision == 1) {
+            cout << "Decides quedarte con ellos." << endl;
+            cout << "Lo que causa que te secuestren y termines desapareciendo." << endl;
+            vida = 0;
+            cout << "Vida: " << vida << endl;
+            cout << "Desapareciste" << endl;
+        } else if (decision == 2) {
+	            cout << "Sigues avanzando y te encuentras con un telefono, pides ayuda y te rescatan." << endl;
+	            cout << "Vida: " << vida << endl;
+	            cout << "Te salvaste" << endl;
+	            return 0;
+        }
+    } else if (decision == 4) {
+		        cout << "Gritas en busca de ayuda, atraes a un oso y te ataca." << endl;
+		        vida = 0;
+		        cout << "Vida: " << vida << endl;
+		        cout << "Moriste" << endl;
+		        return 0;
+    } else {
+        		cout << "Opcion invalida. Elige una opcion valida del 1 al 4." << endl;
+		}
+	break;
+            }
+            case 2:
+                cout << "Este juego fue hecho con el fin de calificacion gracias a los conocimientos básicos de youtube y el profe cande." << endl;
+                cout << "Desde el dia 16/11/2023 hasta el 26/11/2023." << endl;
+                break;
+            case 3:
+                cout << "Ve siguiendo las indicaciones, ya que es un juego de decisiones" << endl;
+                cout << "pulsando los números que te vayan mostrando" << endl;
+                break;
+            case 4:
+                cout << "Gracias por jugar. Cuídate." << endl;
+                break;
+            default:
+                cout << "Opcion invalida. Ingrese una opcion valida." << endl;
+                break;
+        }
+    } while (option != 4);
+
+    return 0;
+}
